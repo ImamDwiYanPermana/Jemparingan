@@ -1,0 +1,82 @@
+/* Destination 1 */
+/* Gallery item container for animations and titles */
+.gallery-section {
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+  }
+  
+  .gallery-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+  
+  .gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .gallery-column {
+    flex: 1;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .gallery-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ensure transition is applied */
+  }
+  
+  /* Hover effect */
+  .gallery-image:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  }
+  
+  /* Click effect */
+  .gallery-image:active {
+    transform: scale(0.95); /* Scale down slightly on click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Reset shadow on click */
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .gallery-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .gallery-column {
+      max-width: 100%;
+    }
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .gallery-image {
+    animation: fadeIn 0.5s ease-out forwards; /* Apply fadeIn animation */
+    opacity: 0; /* Initially hidden for fade-in effect */
+  }
+  
+  /* Delay for each image */
+  .gallery-column:nth-child(1) .gallery-image { animation-delay: 0.1s; }
+  .gallery-column:nth-child(2) .gallery-image { animation-delay: 0.2s; }
+  .gallery-column:nth-child(3) .gallery-image { animation-delay: 0.3s; }
+  
+  /* Ensure images are visible after fade-in */
+  .gallery-image.loaded {
+    opacity: 1; /* Make images visible after loading */
+  }
+  
